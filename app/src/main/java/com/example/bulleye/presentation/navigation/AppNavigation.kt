@@ -1,4 +1,4 @@
-package com.example.bulleye.navigation
+package com.example.bulleye.presentation.navigation
 
 enum class Screen {
     HOME,

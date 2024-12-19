@@ -1,4 +1,4 @@
-package com.example.bulleye.game.components
+package com.example.bulleye.presentation.game.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

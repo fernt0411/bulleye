@@ -1,4 +1,4 @@
-package com.example.bulleye.game
+package com.example.bulleye.presentation.game
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.magnifier
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Refresh
@@ -17,22 +16,30 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.bulleye.game.components.BullEyeBar
+import com.example.bulleye.presentation.game.components.BullEyeBar
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @Composable
 fun GameScreen(
     navController: NavController,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: GameViewModel = hiltViewModel()
 ) {
+    val randomNumber by viewModel.randomNumber.collectAsStateWithLifecycle()
     Column {
-        RandomNumber(modifier = modifier)
+        RandomNumber(
+            modifier = modifier,
+            randomNumber = randomNumber
+        )
         Spacer(modifier = modifier.height(16.dp))
         BullEyeBar(modifier = modifier)
         Spacer(modifier = modifier.height(16.dp))
@@ -41,7 +48,10 @@ fun GameScreen(
 }
 
 @Composable
-fun RandomNumber(modifier: Modifier = Modifier) {
+fun RandomNumber(
+    modifier: Modifier = Modifier,
+    randomNumber: Int
+) {
     Text(
         modifier = modifier
             .fillMaxWidth(),
@@ -53,7 +63,7 @@ fun RandomNumber(modifier: Modifier = Modifier) {
             .fillMaxWidth(),
         textAlign = TextAlign.Center,
         fontSize = 32.sp,
-        text = "39"
+        text = randomNumber.toString()
     )
 }
 

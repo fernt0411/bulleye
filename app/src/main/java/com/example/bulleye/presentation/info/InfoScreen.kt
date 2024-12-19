@@ -1,4 +1,4 @@
-package com.example.bulleye.info
+package com.example.bulleye.presentation.info
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Text

@@ -1,12 +1,12 @@
-package com.example.bulleye.navigation
+package com.example.bulleye.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.bulleye.game.GameScreen
-import com.example.bulleye.info.InfoScreen
+import com.example.bulleye.presentation.game.GameScreen
+import com.example.bulleye.presentation.info.InfoScreen
 
 
 @Composable

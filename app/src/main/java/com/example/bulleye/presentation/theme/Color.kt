@@ -1,4 +1,4 @@
-package com.example.bulleye.ui.theme
+package com.example.bulleye.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
